@@ -14,4 +14,10 @@ This repo is a place to build and test prototypes and fun ideas. My goal is to e
 ## Schultz Table Challenge
   - code found in [src/views/SchultzView.vue](https://github.com/ScottGarberJr/vue-practice/blob/master/vuePractice/src/views/SchultzView.vue)
   - *screenshots coming soon*
+  - issues found:
+    - not responsive
+    - user cant start from largest number and go down on size 16 or 25 tables
+    - if user changes size on dropdown and does not click the 'New' button, game cannot be completed.
+    - going to remove the New button and just auto-new when new size selected
+ 
 
