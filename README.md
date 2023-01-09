@@ -20,3 +20,6 @@ This repo is a place to build and test prototypes and fun ideas. My goal is to e
     - issue: user cant start from largest number and go down on size 16 or 25 tables
     - issue: if user changes size on dropdown and does not click the 'New' button, game cannot be completed.
       - action: remove the New button and just auto-new when new size selected
+
+=======
+ 
