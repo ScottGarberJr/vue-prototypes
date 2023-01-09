@@ -6,5 +6,5 @@ import draggable from 'vuedraggable';
 </script>
 
 <template>
-    <h1>Tower of Hanoi</h1>
+    <h1>Timer</h1>
 </template>

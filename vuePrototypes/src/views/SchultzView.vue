@@ -1,8 +1,8 @@
 <script setup>
     import {ref} from "vue";
 
-    var size = ref(9);
-    const schultz = ref([]);
+    var size = ref(9); // sets current size of the table: 9, 16, or 25
+    const schultz = ref([]); // this array will hold Item objects with a nuber form the randomly generated set and some color for bg
 
     class Item{
         constructor(num){
@@ -12,11 +12,11 @@
     }
     function makeSet(){
         const array = [];
-        for(let i=0; i<size.value; i++) array[i] = i+1;
+        for(let i=0; i<size.value; i++) array[i] = i+1; //get an array with the size selected
         // console.log("array: \t" + array); //test
         
-        const set = array;
-        for (let i = array.length-1; i > 0; i--) {
+        const set = array; 
+        for (let i = array.length-1; i > 0; i--) { // shuffle array using Fisher-Yates algorithm
             const j = Math.floor(Math.random() * (i + 1));
             const temp = array[i];
             array[i] = array[j];
@@ -26,31 +26,31 @@
         return set;
     }
     function makeSchultz(){
-        const set = makeSet();
+        const set = makeSet(); // load shuffled set of 'size' length
         // set.forEach(i => {
         //     schultz.value.push(new Item(set[i]));
         // });
         for(let i=0; i<set.length;i++){
-            schultz.value.push(new Item(set[i]));
+            schultz.value.push(new Item(set[i])); // make each number a property of a Item object and then put the object in the Schultz array
         }
         // console.log("set: \t" + set) //test
     }
     function getRandomColor() {
-    return "hsl(" + Math.random() * 360 + ", 100%, 75%)";
+    return "hsl(" + Math.random() * 360 + ", 100%, 75%)"; // generates a random light color 
     }
     
-    makeSchultz();
+    makeSchultz(); // load a set of objects for initial page load
 
     // =========================== DASHBOARD & GAME ========================
-    var next = ref('?');
+    var next = ref('?'); // variable tracking the next number for user to click in game
 
-    var isStarted = false;
-    var isIncreasing = true;
+    var isStarted = false; // gamestate
+    var isIncreasing = true; // is user clicking from 1 to 'size' (user can also start at 'size' and decrease to 1)
 
     function step(pressed){
-        if (!isStarted){
+        if (!isStarted){ //if this is the first click of a new game
             switch (pressed){
-                case 1:
+                case 1: 
                     isStarted = true;    
                     isIncreasing = true;
                     next.value = pressed;
@@ -65,24 +65,24 @@
                 default:
                     next.value = '?'
                     isStarted = false;
-                    console.log(`test...\n
+                    console.log(`test...\n 
                         size: ${size.value},\n
                         started: ${isStarted},\n
                         pressed: ${pressed}
-                        `);
+                        `); // TEST: currently troublshooting issue where decreasing matches do not work in 16 and 25 size games
                     return;
                     break;
             }
         }
         if (pressed==next.value && 
-        ((isIncreasing && next.value == size.value ) || (!isIncreasing && next.value == 1 ))){
+        ((isIncreasing && next.value == size.value ) || (!isIncreasing && next.value == 1 ))){ //win condition
             isStarted = false;
             stopTimer();
             next.value = "?";
             alert(`\n\nCOMPLETED!!!!\n
             Time : ${time.value}`)
         }
-        else if (isIncreasing && pressed==next.value) {
+        else if (isIncreasing && pressed==next.value) { //increasing game iterate
             next.value = pressed + 1;
             console.log(`
                 correct,\n
@@ -91,7 +91,7 @@
                 next: ${next.value}`
                 ); //TEST
         }
-        else if (pressed== next.value){
+        else if (pressed== next.value){ //decreasing game iterate
             next.value = pressed - 1;
             console.log(`
                 correct,\n
@@ -100,26 +100,27 @@
                 next: ${next.value}`
                 ); //TEST
         }
-        else console.log(`WRONG,\n
+        else console.log(`WRONG,\n 
             started: ${isStarted},\n 
             increasing: ${isIncreasing},\n
             next: ${next.value}`); //TEST
+            //else do nothing; wrong card was pressed
     
     }
 // ================================= TIMER ==================================
 var min = 0;
 var sec = 0;
-var time = ref(`${min}:${sec.toString().padStart(2,'0')}`);
+var time = ref(`${min}:${sec.toString().padStart(2,'0')}`); //show time as min:sec
 var timer;
 function runTimer(){
-    timer = setInterval(iterateTime, 1000);
+    timer = setInterval(iterateTime, 1000); //count per second
     console.log("Time started");
     
 }
-function iterateTime(){
+function iterateTime(){ //iterate by 1 second
     if(isStarted){
         sec++;
-        if(sec >= 60){
+        if(sec >= 60){ //convert minutes
             sec = 0;
             min++;
         }
@@ -128,14 +129,14 @@ function iterateTime(){
     else stopTimer();
     
 }
-function updateTime(){
+function updateTime(){ 
     time.value = `${min}:${sec.toString().padStart(2,'0')}`;
 }
-function stopTimer(){
+function stopTimer(){ 
     clearInterval(timer);
     console.log(`time stopped. Time : ${time.value}`)
 }
-function reset(){
+function reset(){ //reset all game states
     stopTimer();
     isStarted = false;
     min = 0;
@@ -146,19 +147,17 @@ function reset(){
 }
 
 // ========================= NEW BUTTON & CHANGING SIZE ========================
-var newSize=ref(9);
-var setSize=ref();
+var newSize=ref(9); // used to separate current size from size to be loaded. otherwise styling adjusts before you click 'New' button and its not pretty
+var setSize=ref(); // admittedly this is a mess right now. This will be changed next time I work on this one.
 
 function loadNew(){
-    do{
-        schultz.value.pop();
+    do{ // removes current schultz set and table
+        schultz.value.pop(); 
     }
     while(schultz.value.length>0);
-    newSize.value = size.value;
-    makeSchultz();
-    reset();
-    
-    
+    newSize.value = size.value; // updates size
+    makeSchultz(); // load new shcultz set and table
+    reset(); // reset game state
 }
     
 </script>
