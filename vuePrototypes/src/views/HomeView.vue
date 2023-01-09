@@ -22,7 +22,25 @@
         title: 'Shop',
         page: '/shop',
         img: "https://images.unsplash.com/photo-1544816155-12df9643f363?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHNob3BwaW5nJTIwYmFza2V0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60"
-        }   
+        },
+        {
+        id: 3,
+        title: 'Battler',
+        page: '/battler',
+        img: ""
+        },
+        {
+        id: 4,
+        title: 'Timer',
+        page: '/timer',
+        img: ""
+        },
+        {
+        id: 4,
+        title: 'Profile Builder',
+        page: '/profbuilder',
+        img: ""
+        }            
   );
 
 </script>
@@ -79,7 +97,7 @@
 }
 .card:hover{
     opacity: #0000001a;
-    box-shadow: 4px 4px #808080cc;
+    box-shadow: 4px 6px #808080cc;
 }
 .card-img{
     width:100%;

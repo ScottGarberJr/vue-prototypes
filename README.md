@@ -1,6 +1,6 @@
 # Vue Prototypes
 This repo is a place to build and test prototypes and fun ideas. My goal is to experiment with ideas, packages, and vue features before putting them in larger-scope projects.
-  - You can view the collection and play around [HERE](https://scotts-vue.onrender.com).
+  - You can view the collection and play around [HERE](https://vue-protos.onrender.com).
   - the code for each mini-project / demo can be found in their own view or component.
   - in between the fun I'll comment my code and work on making each portion responsive :)
 
@@ -14,4 +14,9 @@ This repo is a place to build and test prototypes and fun ideas. My goal is to e
 ## Schultz Table Challenge
   - code found in [src/views/SchultzView.vue](https://github.com/ScottGarberJr/vue-practice/blob/master/vuePractice/src/views/SchultzView.vue)
   - *screenshots coming soon*
-
+  - Todo:
+    - make responsive for mobile
+    - add instructions
+    - issue: user cant start from largest number and go down on size 16 or 25 tables
+    - issue: if user changes size on dropdown and does not click the 'New' button, game cannot be completed.
+      - action: remove the New button and just auto-new when new size selected

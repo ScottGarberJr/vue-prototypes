@@ -5,6 +5,9 @@ import AboutView from './views/AboutView.vue';
 import ShopView from './views/ShopView.vue';
 import SchultzView from './views/SchultzView.vue';
 import HanoiView from './views/HanoiView.vue';
+import BattlerView from './views/BattlerView.vue';
+import TimerView from './views/TimerView.vue';
+import ProfBuilderView from './views/ProfBuilderView.vue';
 
 const router = createRouter({
 
@@ -34,7 +37,22 @@ const router = createRouter({
             path: "/hanoi",
             name: "Hanoi",
             component: HanoiView
-        }
+        },
+        {
+            path: "/battler",
+            name: "Battler",
+            component: BattlerView
+        },
+        {
+            path: "/timer",
+            name: "Timer",
+            component: TimerView
+        },
+        {
+            path: "/profbuilder",
+            name: "Profile Builder",
+            component: ProfBuilderView
+        },
     ]
 
 })

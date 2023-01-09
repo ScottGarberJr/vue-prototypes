@@ -8,6 +8,7 @@
         <header>
             <img src="../assets/PracticeLogo.png" class="logo" alt="Practice Makes Stuff Look Cool" />
             <nav>
+                <a href="https://github.com/scottgarberjr/vue-prototypes"><i class="fa-brands fa-github fa-2xl" v-add-class-hover="'fa-spin'"></i></a>
                 <RouterLink class="nav-item" active-class="active" to="/">Home</RouterLink>
                 <RouterLink class="nav-item" active-class="active" to="/about">About</RouterLink>
             </nav>
@@ -54,5 +55,9 @@ nav{
 .logo{
     height: 100%;
     width: auto;
+}
+.fa-github{
+    color: #000000cc;
+    padding-right: 1em;
 }
 </style>
