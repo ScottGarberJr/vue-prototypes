@@ -3,11 +3,14 @@ import HomeView from "./views/HomeView.vue";
 import AboutView from './views/AboutView.vue';
 
 import ShopView from './views/ShopView.vue';
+    import ItemView from './views/Shop/ItemView.vue';
 import SchultzView from './views/SchultzView.vue';
 import HanoiView from './views/HanoiView.vue';
 import BattlerView from './views/BattlerView.vue';
 import TimerView from './views/TimerView.vue';
 import ProfBuilderView from './views/ProfBuilderView.vue';
+
+
 
 const router = createRouter({
 
@@ -28,6 +31,12 @@ const router = createRouter({
             name: "Shop",
             component: ShopView
         },
+            // Shop Items
+            {
+                path: "/shop/:id",
+                name: "Item",
+                component: ItemView
+            },
         {
             path: "/schultz",
             name: "Schultz",
