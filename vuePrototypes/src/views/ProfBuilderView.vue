@@ -10,11 +10,11 @@
         <div class="sidebar">
             <div class="top-pane">
                 <div class="circle">
-                    <img src="@/assets/ProfBuilder/Nagina.png" alt="sample person img">
+                    <img src="@/assets/ProfBuilder/Scott.png" alt="sample person img">
                 </div>
                 <div class="nametag">
-                    <h1 class="name">Nagina Mirza</h1>
-                    <h2 class="title">Photographer</h2>
+                    <h1 class="name">Scott Garber</h1>
+                    <h2 class="title">Developer</h2>
                 </div>
                 <div class="social">
                     <ul><a href="">a</a></ul>
@@ -82,8 +82,8 @@
 
     }
     .circle img{
-        height: 250px;
-        transform: translateX(-45px);
+        height: 300px;
+        /* transform: translateX(-45px); */
     }
     .nametag{
         width: 100%;
