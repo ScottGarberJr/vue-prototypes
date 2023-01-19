@@ -1,6 +1,7 @@
 import {createRouter, createWebHistory} from "vue-router";
 import HomeView from "./views/HomeView.vue";
 import AboutView from './views/AboutView.vue';
+import NotFoundView from './views/NotFoundView.vue';
 
 import ShopView from './views/ShopView.vue';
     import ItemView from './views/Shop/ItemView.vue';
@@ -62,6 +63,11 @@ const router = createRouter({
             name: "Profile Builder",
             component: ProfBuilderView
         },
+        {
+            path: "/:notfound(.*)*",
+            name: "Not Found",
+            component: NotFoundView
+        }
     ]
 
 })

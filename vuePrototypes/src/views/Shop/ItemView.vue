@@ -11,15 +11,19 @@
 <template>
     <div class="item">
         <div class="top">
-            <h2>Item View</h2>
+            <h1>Item View</h1>
             <router-link to="/Shop"><button class="back">Back</button></router-link>
         </div>
-        <div class="body">
+        <div class="body" v-if="item">
             <h3>{{ item.name[0].toUpperCase() + item.name.substring(1)}}</h3>
             <p>{{ item.category }}</p>
             <p>{{ item.price }}</p>
         </div>
+        <div class="body" v-else>
+            <h2>Sorry! That item is not found.</h2>
+        </div>
     </div>
+    
 </template>
 <style scoped>
 .item{
@@ -34,7 +38,7 @@
 
     padding: 0 20px;
 }
-.top h2{
+.top h1{
     width:100%;
     text-align: center;
 }
@@ -49,5 +53,10 @@
 }
 .body{
     padding: 5px 15px;
+}
+.body h2{
+    font-style:italic;
+    padding: 30px 0;
+    text-align: center;
 }
 </style>
